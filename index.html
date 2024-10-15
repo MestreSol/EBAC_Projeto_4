@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCIExpress Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+       
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo{
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 50px;
+        }
+        .logo h1 {
+            font-size: 1.5em;
+            margin-left: 10px;
+        }
+        
+        .menu ul {
+            display: flex;
+            list-style: none;
+        }
+        .menu ul li {
+            margin-right: 20px;
+        }
+        .menu ul li a {
+            text-decoration: none;
+            color: #000;
+            padding: 0;
+        }
+
+        .menu ul li a:hover {
+            color: #f00;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 20px 0;
+        }
+
+        .products{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .product{
+            padding: 10px;
+            border: 1px solid #f0f0f0;
+            width: 30%;
+            margin-top: 20px;
+        }
+
+        .product img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product h4 {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        .product p {
+            font-size: 16px;
+            margin-top: 10px;
+            font-size: 0.8em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: justify;
+        }
+        .product p.price {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .productfooter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .productfooter button {
+            background-color: #f00;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .productfooter button:hover {
+            background-color: #000;
+        }
+        h2{
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+        hr{
+            margin-top: 10px;
+            border: 1px solid #f0f0f0;
+        }
+        .split-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .store {
+            width: 50%;
+            padding: 10px
+        }
+        .store img {
+            width: 100%;
+        }
+        .store h2 {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        .store p {
+            font-size: 0.9em;
+            margin-top: 20px;
+            text-align: justify;
+        }
+
+        footer {
+            margin-top:20px;
+            background-color: #f0f0f0;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1.2em;
+        }
+        .hamburguer-menu {
+            display: none;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .left-container {
+            position: fixed;
+            top: 0;
+            width: 50%;
+            z-index: 1000; /* Para garantir que o container fique acima de outros elementos */
+        }
+        .right-container {
+            position: fixed;
+            top: 0;
+            width: 50%;
+            right: 0;
+            z-index: 1000; /* Para garantir que o container fique acima de outros elementos */
+        }
+            .container {
+                width: 90%;
+            }
+                body{
+                    display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+                }
+            .logo h1 {
+                font-size: 1.2em;
+            }
+            
+            .hamburguer-menu {
+                display: block;
+                cursor: pointer;
+            }
+            .header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                overflow: hidden;
+            }
+            .menu ul {
+                display: none;
+            }
+            .hamburguer-menu i {
+                font-size: 1.5em;
+            }
+            .hamburguer-menu i:hover {
+                color: #f00;
+            }
+            .split-container {
+                display: block;
+            }
+            .split-container .store {
+                width: 100%;
+            }
+           
+            h1{
+                display: none;
+            }
+            
+        }
+        @media screen and (max-width: 640px) {
+            .left-container {
+            position: fixed;
+            top: 0;
+            width: 50%;
+            z-index: 1000; /* Para garantir que o container fique acima de outros elementos */
+        }
+        .right-container {
+            position: fixed;
+            top: 0;
+            width: 50%;
+            right: 0;
+            z-index: 1000; /* Para garantir que o container fique acima de outros elementos */
+        }
+            .container {
+                width: 90%;
+            }
+            .container h2 {
+                font-size: 1em;
+            }
+            .logo h1 {
+                font-size: 1em;
+            }
+            .menu ul li {
+                margin-right: 10px;
+            }
+            .menu ul li a {
+                font-size: 0.8em;
+            }
+            .hamburguer-menu i {
+                font-size: 1.2em;
+            }
+            .split-container {
+                display: block;
+            }
+            .split-container .store {
+                width: 100%;
+            }
+            .store h2 {
+                font-size: 0.5em;
+            }
+            .store p {
+                font-size: 0.8em;
+            }
+            .product {
+                width: 50%;
+            }
+            .product img {
+                width: 100%;
+            }
+            .product h4 {
+                font-size: 1.2em;
+            }
+            .product p {
+                font-size: 0.8em;
+            }
+            .product p.price {
+                font-size: 1em;
+            }
+            .productfooter button {
+                padding: 10px 15px;
+            }
+            .productfooter button:hover {
+                background-color: #000;
+            }
+            footer p {
+                font-size: 1em;
+            }
+        }
+     
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="left-container">
+        <header>
+            <div class="container">
+                <div class="header">
+                    <div class="logo">
+                        <a href="index.html"><img src="img/logo.png" alt="logo"></a>
+                        <h1>PCIExpress</h1>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                        </ul>
+                    </div>
+                    <div class="hamburguer-menu">
+                        <a href="javascript:void(0)" class="icon" onclick="myFunction()">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="container">
+                <h2>PCIExpress</h2>
+                <hr></hr>
+                <div class="split-container">
+                    <div class="store">
+                        <img src="img/loja.png" alt="store">
+                    </div>
+                    <div class="store">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec pur us. Donec euismod, nunc nec luctus tincidunt, nunc odio ultricies nunc, nec tincidunt nunc odio nec nunc. Nullam nec purus. Donec euismod, nunc nec luctus tincidunt, nunc odio ultricies nunc, nec tincidunt nunc odio nec nunc. Nullam nec purus. Donec euismod, nunc nec luctus tincidunt, nunc odio ultricies nunc, nec tincidunt nunc odio nec nunc. Nullam nec purus. Donec euismod, nunc nec luctus tincidunt, nunc odio ultricies nunc, nec tincidunt nunc odio nec nunc.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="right-container">
+
+        <section>
+            <div class="container">
+                <h2>Mais Vendidos</h2>
+                <hr></hr>
+                <div class="products">
+                    <div class="product">
+                        <picture>
+                            <source srcset="https://placehold.co/600x600" media="(min-width: 1024px)">
+                            <source srcset="https://placehold.co/500x500" media="(min-width: 641px) and (max-width: 1023px)">
+                            <source srcset="https://placehold.co/400x400" media="(max-width: 640px)">
+                            <img src="https://placehold.co/200x150" alt="Product 1">
+                        </picture>
+                        <h4>Produto 1</h4>
+                        <p class="description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus faucibus iaculis. Nulla facilisi. Duis at luctus odio, sed dignissim nisl. Sed congue libero sed consequat eleifend. Maecenas egestas tristique ligula, ut fringilla orci tristique at.
+                        </p>
+                        <p class="price">Price: $100</p>
+                        <div class="productfooter">
+                            <button>Add to cart</button>
+                        </div>
+                    </div>  
+                    <div class="product">
+                        <picture>
+                            <source srcset="https://placehold.co/600x600" media="(min-width: 1024px)">
+                            <source srcset="https://placehold.co/500x500" media="(min-width: 641px) and (max-width: 1023px)">
+                            <source srcset="https://placehold.co/400x400" media="(max-width: 640px)">
+                            <img src="https://placehold.co/200x150" alt="Product 3">
+                        </picture>
+                        <h4>Produto 2</h4>
+                        <p class="description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus faucibus iaculis. Nulla facilisi. Duis at luctus odio, sed dignissim nisl. Sed congue libero sed consequat eleifend. Maecenas egestas tristique ligula, ut fringilla orci tristique at.
+                        </p>
+                        <p class="price">Price: $240</p>
+                        <div class="productfooter">
+                            <button>Add to cart</button>
+                        </div>
+                    </div>  
+                    <div class="product">
+                        <picture>
+                            <source srcset="https://placehold.co/600x600" media="(min-width: 1024px)">
+                            <source srcset="https://placehold.co/500x500" media="(min-width: 641px) and (max-width: 1023px)">
+                            <source srcset="https://placehold.co/400x400" media="(max-width: 640px)">
+                            <img src="https://placehold.co/200x150" alt="Product 3">
+                        </picture>
+                        <h4>Produto 3</h4>
+                        <p class="description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus faucibus iaculis. Nulla facilisi. Duis at luctus odio, sed dignissim nisl. Sed congue libero sed consequat eleifend. Maecenas egestas tristique ligula, ut fringilla orci tristique at.
+                        </p>
+                        <p class="price">Price: $500</p>
+                        <div class="productfooter">
+                            <button>Add to cart</button>
+                        </div>
+                    </div>  
+                    <div class="product">
+                        <picture>
+                            <source srcset="https://placehold.co/600x600" media="(min-width: 1024px)">
+                            <source srcset="https://placehold.co/500x500" media="(min-width: 641px) and (max-width: 1023px)">
+                            <source srcset="https://placehold.co/400x400" media="(max-width: 640px)">
+                            <img src="https://placehold.co/200x150" alt="Product 4">
+                        </picture>
+                        <h4>Produto 4</h4>
+                        <p class="description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus faucibus iaculis. Nulla facilisi. Duis at luctus odio, sed dignissim nisl. Sed congue libero sed consequat eleifend. Maecenas egestas tristique ligula, ut fringilla orci tristique at.
+                        </p>
+                        <p class="price">Price: $111</p>
+                        <div class="productfooter">
+                            <button>Add to cart</button>
+                        </div>
+                    </div>  
+                    <div class="product">
+                        <picture>
+                            <source srcset="https://placehold.co/600x600" media="(min-width: 1024px)">
+                            <source srcset="https://placehold.co/500x500" media="(min-width: 641px) and (max-width: 1023px)">
+                            <source srcset="https://placehold.co/400x400" media="(max-width: 640px)">
+                            <img src="https://placehold.co/200x150" alt="Product 3">
+                        </picture>
+                        <h4>Produto 5</h4>
+                        <p class="description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus faucibus iaculis. Nulla facilisi. Duis at luctus odio, sed dignissim nisl. Sed congue libero sed consequat eleifend. Maecenas egestas tristique ligula, ut fringilla orci tristique at.
+                        </p>
+                        <p class="price">Price: $42</p>
+                        <div class="productfooter">
+                            <button>Add to cart</button>
+                        </div>
+                    </div>  
+                <div class="product">
+                    <picture>
+                        <source srcset="https://placehold.co/600x600" media="(min-width: 1024px)">
+                        <source srcset="https://placehold.co/500x500" media="(min-width: 641px) and (max-width: 1023px)">
+                        <source srcset="https://placehold.co/400x400" media="(max-width: 640px)">
+                        <img src="https://placehold.co/200x150" alt="Product 3">
+                    </picture>
+                    <h4>Produto 6</h4>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus faucibus iaculis. Nulla facilisi. Duis at luctus odio, sed dignissim nisl. Sed congue libero sed consequat eleifend. Maecenas egestas tristique ligula, ut fringilla orci tristique at.
+                    </p>
+                    <p class="price">Price: $147</p>
+                    <div class="productfooter">
+                        <button>Add to cart</button>
+                    </div>
+                </div>  
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>PCIExpress Shop</p>
+        </div>
+    </footer>
+</div>
+
+</body>
+<!-- import JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Import carousel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<script src="js/main.js"></script>
+
+<script>
+    function myFunction(){
+        var x = document.querySelector(".menu ul");
+        if(x.style.display === "flex"){
+            x.style.display = "none";
+        }else{
+            x.style.display = "flex";
+        }
+    }
+</script>
+
+</html>
